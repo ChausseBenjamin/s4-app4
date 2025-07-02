@@ -62,7 +62,7 @@ R27 P007 N024 1
 .param vv=1.8 nnw=180n mp=2.3
 .tran 0 10000p 0 10p
 .lib BU_180nm.lib
-.meas tran t1 find time when v(out)=vv*0.1 rise 1
+.meas tran t1 find time when v(out)=vv*0.1 rise 2
 .meas tran t2 find time when v(out)=vv*0.9 rise 1
 .meas tran t3 find time when v(out)=vv*0.1 fall 2
 .meas tran t4 find time when v(out)=vv*0.9 fall 1
