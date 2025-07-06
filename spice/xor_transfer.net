@@ -1,0 +1,52 @@
+* C:\users\lyam\Documents\University\S4\APP4\GitHub\s4-app4\spice\xor_transfer.asc
+V1 vdd 0 {vv}
+V2 b 0 PULSE({vv} 0 1000p 1p 1p 2000p 4000p 5)
+V3 N001 0 PULSE(0 0 2000p 1p 1p 2000p 4000p 5)
+C1 out 0 1f
+XX2 vdd out vdd 0 b xor params: XOR ll=180n wn={nnw} wp={nnw*mp}
+
+* block symbol definitions
+.subckt xor in1 Q vdd vss in2
+R3 Q N010 1
+R4 N010 N009 1
+R5 N010 N011 1
+M9 Q in1 N006 vss NMOS l={ll} w={wn*2} ad={450n*{wn}} as={450n*{wn}} pd={900n+{wn}} ps={1080n+{wn}}
+M10 vdd N001 N003 vdd PMOS l={ll} w={wp*2} ad={450n*{wp}} as={450n*{wp}} pd={900n+{wp}} ps={1080n+{wp}}
+M5 vdd N002 N004 vdd PMOS l={ll} w={wp*2} ad={450n*{wp}} as={450n*{wp}} pd={900n+{wp}} ps={1080n+{wp}}
+M6 N003 in2 Q vdd PMOS l={ll} w={wp*2} ad={450n*{wp}} as={450n*{wp}} pd={900n+{wp}} ps={1080n+{wp}}
+M7 N004 in1 Q vdd PMOS l={ll} w={wp*2} ad={450n*{wp}} as={450n*{wp}} pd={900n+{wp}} ps={1080n+{wp}}
+M1 Q N005 N007 vss NMOS l={ll} w={wn*2} ad={450n*{wn}} as={450n*{wn}} pd={900n+{wn}} ps={1080n+{wn}}
+M2 N006 in2 vss vss NMOS l={ll} w={wn*2} ad={450n*{wn}} as={450n*{wn}} pd={900n+{wn}} ps={1080n+{wn}}
+M3 N007 N008 vss vss NMOS l={ll} w={wn*2} ad={450n*{wn}} as={450n*{wn}} pd={900n+{wn}} ps={1080n+{wn}}
+M4 vdd in1 N001 vdd PMOS l={ll} w={wp*1} ad={450n*{wp}} as={450n*{wp}} pd={900n+{wp}} ps={1080n+{wp}}
+M8 N001 in1 vss vss NMOS l={ll} w={wn*1} ad={450n*{wn}} as={450n*{wn}} pd={900n+{wn}} ps={1080n+{wn}}
+M11 vdd in2 N002 vdd PMOS l={ll} w={wp*1} ad={450n*{wp}} as={450n*{wp}} pd={900n+{wp}} ps={1080n+{wp}}
+M12 N002 in2 vss vss NMOS l={ll} w={wn*1} ad={450n*{wn}} as={450n*{wn}} pd={900n+{wn}} ps={1080n+{wn}}
+M13 vdd in2 N005 vdd PMOS l={ll} w={wp} ad={450n*{wp}} as={450n*{wp}} pd={900n+{wp}} ps={1080n+{wp}}
+M14 N005 in2 vss vss NMOS l={ll} w={wn} ad={450n*{wn}} as={450n*{wn}} pd={900n+{wn}} ps={1080n+{wn}}
+M15 vdd in1 N008 vdd PMOS l={ll} w={wp*1} ad={450n*{wp}} as={450n*{wp}} pd={900n+{wp}} ps={1080n+{wp}}
+M16 N008 in1 vss vss NMOS l={ll} w={wn*1} ad={450n*{wn}} as={450n*{wn}} pd={900n+{wn}} ps={1080n+{wn}}
+.lib BU_180nm.lib
+.param wp1={wp*3}
+.param wn1={wn*3}
+.param wp2={wp*3}
+.ends xor
+
+.model NMOS NMOS
+.model PMOS PMOS
+.lib C:\users\lyam\Documents\LTspiceXVII\lib\cmp\standard.mos
+.param vv=1.8 nnw=2*180n mp=2.5
+.lib BU_180nm.lib
+.meas tran t1 find time when v(out)=vv*0.1 rise 1
+.meas tran t2 find time when v(out)=vv*0.9 rise 1
+.meas tran t3 find time when v(out)=vv*0.1 fall 1
+.meas tran t4 find time when v(out)=vv*0.9 fall 1
+.meas tran transition_up param abs(t2-t1)
+.meas tran transition_down param abs(t4-t3)
+.meas tran ratio param upslope/downslope
+.meas dc vi_mid param (vil+vih)/2
+.meas dc vil when d(v(out))=-1 fall 1
+.meas dc vih when d(v(out))=-1 rise 1
+.dc V2 0 {vv} 0.01
+.backanno
+.end
