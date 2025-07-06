@@ -77,7 +77,8 @@
 \section{Plan de vérification}
 
 \begin{center}
-	\begin{longtable}{lp{4.5cm}p{4cm}p{4cm}l}
+  \footnotesize
+	\begin{longtable}{lp{4cm}p{4cm}p{5cm}l}
 		% Headers & Footers {{{
 		\caption{Plan de vérification} \label{tab:verif}
 		\\
@@ -135,6 +136,86 @@
 		Éxecuter \verb|nor_test.asc| et ourvir les logs &
 		Le temps de transition \verb|transition_up| et \verb|transition_down| sont en bas de 130ps &
 		\cbox \\
+
+	  \tid &
+    Temps de transition Non-Et &
+		Éxecuter \verb|nand_test.asc| et ourvir ses logs &
+		Le temps de transition \verb|transition_up| et \verb|transition_down| sont en bas de 130ps &
+		\cbox \\
+
+		\tid &
+    Temps de transition Non-Ou &
+		Éxecuter \verb|nor_test.asc| et ourvir ses logs &
+		Le temps de transition \verb|transition_up| et \verb|transition_down| sont en bas de 130ps &
+		\cbox \\
+
+	  \tid &
+    Temps de transition Non-Et &
+		Éxecuter \verb|nand_test.asc| et ourvir ses logs &
+		Le temps de transition \verb|transition_up| et \verb|transition_down| sont en bas de 130ps &
+		\cbox \\
+
+	  \tid &
+    Temps de transition Ou exclusif &
+		Éxecuter \verb|xor_test.asc| et ourvir ses logs &
+		Le temps de transition \verb|transition_up| et \verb|transition_down| sont en bas de 130ps & \\
+
+	  \tid &
+    TVm du Non-Et &
+		Éxecuter \verb|nand_transfer.asc| et ourvir ses logs &
+		Le Vm est proche de VDD/2 (0.9) &
+		\cbox \\
+
+	  \tid &
+    Vm du Ou exclusif &
+		Éxecuter \verb|xor_transfer.asc| et ourvir ses logs &
+		Le Vm est proche de VDD/2 (0.9) &
+		\cbox \\
+
+    % - Buffer - %
+
+    \tid &
+    Temps de propagation &
+		Éxecuter \verb|pad_buffer_test.asc| et ourvir ses logs &
+		Le temps de propagation est plus rapide que l'autre alternative d'inverseurs. &
+		\cbox \\
+
+    % - ALU - %
+
+    \tid &
+    Largeur de transistors &
+		Vérifier les largeurs des transistors &
+		Tout les transistors on une longueur de 180n et une largeur égal ou en haut de 180n &
+		\cbox \\
+
+    % - AND 3 bit - %
+
+    \tid &
+    Sortie du ET 3 bits &
+		Executer \verb|and3b_test.asc| et analyzer le graphique généré &
+		Les sorties respectent la table de vérité d'une porte ET. &
+		\cbox \\
+
+    \tid &
+    Temps de transition du ET 3 bits &
+		Executer \verb|and3b_test_transfer.asc| et ouvrir les logs &
+		Le temps de transition entre les entrées et les sorties sont d'au plus 200ps &
+		\cbox \\
+
+   % - ADD 3 bit - %
+
+    \tid &
+    Sortie de l'additionneur 3 bits &
+		Executer \verb|add3b_test.asc| et analyzer le graphique généré &
+		Les sorties respectent la table de vérité d'un additionneur 3 bits. &
+		\cbox \\
+
+    \tid &
+    Temps de transition du ET 3 bits &
+		Executer \verb|add3b_test_transfer.asc| et ouvrir les logs &
+		Le temps de transition entre les entrées et les sorties sont d'au plus 200ps &
+		\cbox \\
+
 
     % }}}
 	\end{longtable}
