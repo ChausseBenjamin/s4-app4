@@ -1,0 +1,104 @@
+\documentclass[a11paper]{article}
+
+\usepackage{karnaugh-map}
+\usepackage{subcaption}
+\usepackage{tabularx}
+\usepackage{titlepage}
+\usepackage{document}
+\usepackage{booktabs}
+\usepackage{multicol}
+\usepackage{float}
+\usepackage{varwidth}
+\usepackage{graphicx}
+\usepackage{siunitx}
+% \usepackage[toc,page]{appendix}
+\usepackage[usenames,dvipsnames]{xcolor}
+
+\title{Rapport d'APP}
+
+\class{Logique Combinatoire}
+\classnb{GEN420 \& GEN430}
+
+\teacher{Keven Deslandes}
+
+\author{
+  \addtolength{\tabcolsep}{-0.4em}
+  \begin{tabular}{rcl} % Ajouter des auteurs au besoin
+      Benjamin Chausse & -- & CHAB1704 \\
+      Shawn Couture    & -- & COUS1912 \\
+  \end{tabular}
+}
+
+\newcommand{\todo}[1]{\begin{color}{Red}\textbf{TODO:} #1\end{color}}
+\newcommand{\note}[1]{\begin{color}{Orange}\textbf{NOTE:} #1\end{color}}
+\newcommand{\fixme}[1]{\begin{color}{Fuchsia}\textbf{FIXME:} #1\end{color}}
+\newcommand{\question}[1]{\begin{color}{ForestGreen}\textbf{QUESTION:} #1\end{color}}
+
+\newcommand{\quicktab}[4]{
+  \begin{table}[H]
+    \centering
+    \caption{#1}
+    \label{tab:#2}
+    \begin{tabular}{#3}
+      #3
+    \end{tabular}
+  \end{table}
+}
+
+\newcommand{\quickfig}[4]{
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=#3\textwidth]{#4}
+  \caption{#1}
+  \label{fig:#2}
+\end{figure}
+}
+
+\begin{document}
+\maketitle
+\newpage
+\tableofcontents
+\newpage
+
+\section{Plan de vérification}
+\todo{Rédiger le plan de vérification.}
+
+\section{Conception de l'UAL}
+
+\subsection{Additionneur à 3 bits}
+Voir schéma en Annexe~\ref{appdx:schematics}.
+\todo{Expliquer brièvement.}
+
+\subsection{Porte AND à 3 bits}
+Voir schéma en Annexe~\ref{appdx:schematics}.
+\todo{Expliquer brièvement.}
+
+\subsection{Multiplexeur 2 vers 1}
+Voir schéma en Annexe~\ref{appdx:schematics}.
+
+\subsubsection{Table de vérité et fonctions logiques}
+\todo{Ajouter la table de vérité, $Y$ et $\overline{Y}$.}
+
+\subsubsection{Dimensionnement relatif des transistors}
+\todo{Décrire le dimensionnement relatif dans le PUN (pull-up network), le PDN (pull-down) et entre les deux.}
+
+\subsubsection{Dimensionnement absolu}
+\todo{Justifier et donner le dimensionnement absolu pour respecter les spécifications.}
+
+\subsection{Tampon de sortie}
+Voir schéma en Annexe~\ref{appdx:schematics}.
+
+\subsubsection{Dimensionnement des étages}
+\todo{Indiquer le dimensionnement de chaque étage et justifier (schéma ou tableau).}
+
+\section{Mesures}
+
+\subsection{Temps de montée}
+\todo{Présenter un tableau avec le temps de montée (10\%-90\%) pour AND, ADD et UAL.}
+
+\subsection{Délai de propagation}
+\todo{résenter un tableau avec le délai de propagation pour cin $\rightarrow$ cout, a1 $\rightarrow$ o1 pour AND et ADD.}
+
+\input{annexes.tex}
+
+\end{document}
