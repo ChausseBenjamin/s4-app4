@@ -2,7 +2,7 @@ Version 4
 SymbolType BLOCK
 RECTANGLE Normal 64 48 -80 -48
 TEXT -84 -64 Left 2 ADDER_1B
-SYMATTR Description 1Bit Full Adder
+SYMATTR Description 1-bit Add
 SYMATTR ModelFile add1b.asc
 PIN 64 -32 RIGHT 8
 PINATTR PinName cin
@@ -25,3 +25,6 @@ PINATTR SpiceOrder 6
 PIN 16 48 NONE 8
 PINATTR PinName vdd
 PINATTR SpiceOrder 7
+PIN -80 0 NONE 8
+PINATTR PinName <InstName>
+PINATTR SpiceOrder 8
