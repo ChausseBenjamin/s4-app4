@@ -125,26 +125,52 @@
 		% Tests {{{
 		\tid &
     Temps de transition de l'inverseur &
-		Éxecuter `inv_test.asc' et ourvir les logs &
+		Éxecuter `inv_test.asc' et ourvir ses logs &
 		Le temps de transition `transition_up` et `transition_down` sont en bas de 130ps &
 		\cbox \\
 
 		\tid &
     Temps de transition Non-Ou &
-		Éxecuter `nor_test.asc' et ourvir les logs &
+		Éxecuter `nor_test.asc' et ourvir ses logs &
 		Le temps de transition `transition_up` et `transition_down` sont en bas de 130ps &
 		\cbox \\
 
 	  \tid &
     Temps de transition Non-Et &
-		Éxecuter `nand_test.asc' et ourvir les logs &
+		Éxecuter `nand_test.asc' et ourvir ses logs &
 		Le temps de transition `transition_up` et `transition_down` sont en bas de 130ps &
 		\cbox \\
 
 	  \tid &
     Temps de transition Ou exclusif &
-		Éxecuter `xor_test.asc' et ourvir les logs &
+		Éxecuter `xor_test.asc' et ourvir ses logs &
 		Le temps de transition `transition_up` et `transition_down` sont en bas de 130ps &
+		\cbox \\
+
+    % - Vm - %
+
+		\tid &
+    Vm de l'inverseur &
+		Éxecuter `inv_transfer.asc' et ourvir ses logs &
+		Le Vm est proche de VDD/2 (0.9) &
+		\cbox \\
+
+		\tid &
+    Vm du Non-Ou &
+		Éxecuter `nor_transfer.asc' et ourvir ses logs &
+		Le Vm est proche de VDD/2 (0.9) &
+		\cbox \\
+
+	  \tid &
+    TVm du Non-Et &
+		Éxecuter `nand_transfer.asc' et ourvir ses logs &
+		Le Vm est proche de VDD/2 (0.9) &
+		\cbox \\
+
+	  \tid &
+    Vm du Ou exclusif &
+		Éxecuter `xor_transfer.asc' et ourvir ses logs &
+		Le Vm est proche de VDD/2 (0.9) &
 		\cbox \\
 
     % }}}
