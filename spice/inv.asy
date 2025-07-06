@@ -9,6 +9,7 @@ CIRCLE Normal 32 4 24 -4
 WINDOW 0 -8 -32 Left 2
 WINDOW 3 -8 40 Left 2
 SYMATTR Description CMOS018_inv
+SYMATTR ModelFile inv.asc
 PIN -16 0 NONE 0
 PINATTR PinName In
 PINATTR SpiceOrder 1
