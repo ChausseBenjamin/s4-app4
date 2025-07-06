@@ -25,6 +25,3 @@ PINATTR SpiceOrder 6
 PIN 16 48 NONE 8
 PINATTR PinName vdd
 PINATTR SpiceOrder 7
-PIN -80 0 NONE 8
-PINATTR PinName <InstName>
-PINATTR SpiceOrder 8
