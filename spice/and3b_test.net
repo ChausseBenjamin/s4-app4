@@ -40,6 +40,13 @@ M2 vdd In _Q vdd PMOS l={ll} w={wp} ad={450n*{wp}} as={450n*{wp}} pd={900n+{wp}}
 .lib BU_180nm.lib
 .op
 .dc va 0 9 0.01
+.meas tran t1 find time when v(o1)=vv*0.1 rise 1
+.meas tran t2 find time when v(o1)=vv*0.9 rise 1
+.meas tran t3 find time when v(o1)=vv*0.1 fall 1
+.meas tran t4 find time when v(o1)=vv*0.9 fall 1
+.meas tran transition_up param abs(t2-t1)
+.meas tran transition_down param abs(t4-t3)
+.meas TRAN ratio PARAM transition_up/transition_down
 .lib Bin2Dec.sub
 .lib Dec2Bin.sub
 .backanno
