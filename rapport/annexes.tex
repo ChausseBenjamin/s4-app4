@@ -22,4 +22,59 @@
 
 \section{Tables de vérité}
 
+\quicktab{Multiplexeur 2 vers 1 Bit}{mux2x1b}{ccccccc}{
+  \toprule
+  \multirow{2}{*}{$s_{el}$} &
+  \multirow{2}{*}{$a$} &
+  \multirow{2}{*}{$b$} &
+  $T_1$ &
+  $T_2$ &
+  $T_3$ &
+  $o_{ut}$ \\
+  & & &
+  $s^\prime$ &
+  $(aT_1)^\prime$ &
+  $(bs)^\prime$ &
+  $(T_2T_3)^\prime$ \\
+  \midrule
+  0&0&0&1&1&1&0 \\
+  0&0&1&1&1&1&0 \\
+  0&1&0&1&0&1&1 \\
+  0&1&1&1&0&1&1 \\
+  1&0&0&0&1&1&0 \\
+  1&0&1&0&1&0&1 \\
+  1&1&0&0&1&1&0 \\
+  1&1&1&0&1&0&1
+  \\
+  \bottomrule
+}
+
+\quicktab{Additionneur 1 Bit}{add1b}{cccccccc}{
+  \toprule
+  \multirow{2}{*}{$c_{in}$} &
+  \multirow{2}{*}{$a$} &
+  \multirow{2}{*}{$b$} &
+  $T_1$     &
+  $D$       &
+  $T_2$     &
+  $s_{um}$  &
+  $c_{out}$ \\
+  & & &
+  $(ab)^\prime$ &
+  $a\oplus b$ &
+  $(Dc_{in})^\prime$ &
+  $D\oplus c_{in}$ &
+  $(T_1T_2)^\prime$
+  \\
+  0&0&0&1&0&1&0&0 \\
+  0&0&1&1&1&1&1&0 \\
+  0&1&0&1&1&1&1&0 \\
+  0&1&1&0&0&1&0&1 \\
+  1&0&0&1&0&1&1&0 \\
+  1&0&1&1&1&0&0&1 \\
+  1&1&0&1&1&0&0&1 \\
+  1&1&1&0&0&1&1&1 \\
+  \bottomrule
+}
+
 \todo{Ajouter la table de vérité, la fonction $Y$ (PUN) et la fonction $\overline{Y}$ (PDN).}
