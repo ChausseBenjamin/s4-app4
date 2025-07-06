@@ -39,7 +39,7 @@ M2 vdd In _Q vdd PMOS l={ll} w={wp} ad={450n*{wp}} as={450n*{wp}} pd={900n+{wp}}
 .param vv=1.8 nnw=1*180n mp=2.5
 .lib BU_180nm.lib
 .op
-.dc va 0 7 1
+.dc va 0 9 0.01
 .lib Bin2Dec.sub
 .lib Dec2Bin.sub
 .backanno
