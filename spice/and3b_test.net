@@ -1,0 +1,46 @@
+* C:\users\lyam\Documents\University\S4\APP4\GitHub\s4-app4\spice\and3b_test.asc
+XU1 o1 o2 o3 out Bin2Dec Vhigh={vv}
+XU2 b b1 b2 b3 Dec2Bin Vhigh={vv}
+XU3 a a1 a2 a3 Dec2Bin Vhigh={vv}
+V1 vss 0 1.8
+Va a 0 3
+Vb b 0 3
+Vsel sel 0 1.8
+XX1 vss a1 a2 a3 b1 b2 b3 0 o1 o2 o3 and3b params: ll=180n wp={nnw*mp} wn={nnw}
+
+* block symbol definitions
+.subckt and3b vdd a1 a2 a3 b1 b2 b3 vss o1 o2 o3
+XX1 a1 N001 vdd vss b1 nand params: NAND wn={nnw} wp={nnw*mp} ll={ll}
+XX2 a2 N002 vdd vss b2 nand params: NAND wn={nnw} wp={nnw*mp} ll={ll}
+XX3 a3 N003 vdd vss b3 nand params: NAND wn={nnw} wp={nnw*mp} ll={ll}
+XX4 N001 o1 vdd vss inv params: wn={nnw} wp={nnw*mp} ll={ll}
+XX5 N002 o2 vdd vss inv params: wn={nnw} wp={nnw*mp} ll={ll}
+XX6 N003 o3 vdd vss inv params: wn={nnw} wp={nnw*mp} ll={ll}
+.ends and3b
+
+.subckt nand in1 Q vdd vss in2
+R2 vdd N002 1
+M1 vdd in1 Q vdd PMOS l={ll} w={wp} ad={450n*{wp}} as={450n*{wp}} pd={900n+{wp}} ps={1080n+{wp}}
+M2 Q in1 N005 vss NMOS l={ll} w={wn*2} ad={450n*{wn}} as={450n*{wn}} pd={900n+{wn}} ps={1080n+{wn}}
+M3 vdd in2 Q vdd PMOS l={ll} w={wp} ad={450n*{wp}} as={450n*{wp}} pd={900n+{wp}} ps={1080n+{wp}}
+M4 N005 in2 vss vss NMOS l={ll} w={wn*2} ad={450n*{wn}} as={450n*{wn}} pd={900n+{wn}} ps={1080n+{wn}}
+.lib BU_180nm.lib
+.ends nand
+
+.subckt inv In _Q vdd vss
+M1 _Q In vss vss NMOS l={ll} w={wn} ad={450n*{wn}} as={450n*{wn}} pd={900n+{wn}} ps={1080n+{wn}}
+M2 vdd In _Q vdd PMOS l={ll} w={wp} ad={450n*{wp}} as={450n*{wp}} pd={900n+{wp}} ps={1080n+{wp}}
+.lib BU_180nm.lib
+.ends inv
+
+.model NMOS NMOS
+.model PMOS PMOS
+.lib C:\users\lyam\Documents\LTspiceXVII\lib\cmp\standard.mos
+.param vv=1.8 nnw=1*180n mp=2.5
+.lib BU_180nm.lib
+.op
+.dc va 0 7 1
+.lib Bin2Dec.sub
+.lib Dec2Bin.sub
+.backanno
+.end
