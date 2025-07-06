@@ -20,8 +20,8 @@ PIN 64 32 RIGHT 8
 PINATTR PinName cout
 PINATTR SpiceOrder 5
 PIN 16 -48 NONE 8
-PINATTR PinName vss
+PINATTR PinName vdd
 PINATTR SpiceOrder 6
 PIN 16 48 NONE 8
-PINATTR PinName vdd
+PINATTR PinName vss
 PINATTR SpiceOrder 7
