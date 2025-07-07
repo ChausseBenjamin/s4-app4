@@ -16,11 +16,11 @@ XX3 N002 a3 b3 o3 cout vdd vss add1b params: ll={ll} wn={nnw} wp={nnw*mp}
 .ends add3b
 
 .subckt add1b cin a b s cout vss vdd
-XX1 a N001 vss vdd b nand params: NAND wn={nnw} wp={nnw*mp} ll={ll}
-XX2 N003 N002 vss vdd cin nand params: NAND wn={nnw} wp={nnw*mp} ll={ll}
-XX3 a N003 vss vdd b xor params: XOR ll={ll} wn={nnw} wp={nnw*mp}
-XX4 N001 cout vss vdd N002 nand params: NAND wn={nnw} wp={nnw*mp} ll={ll}
-XX5 N003 s vss vdd cin xor params: XOR ll={ll} wn={nnw} wp={nnw*mp}
+XX1 b N001 vss vdd a nand params: NAND wn={nnw} wp={nnw*mp} ll={ll}
+XX2 cin N002 vss vdd N003 nand params: NAND wn={nnw} wp={nnw*mp} ll={ll}
+XX3 b N003 vss vdd a xor params: XOR ll={ll} wn={nnw} wp={nnw*mp}
+XX4 N002 cout vss vdd N001 nand params: NAND wn={nnw} wp={nnw*mp} ll={ll}
+XX5 cin s vss vdd N003 xor params: XOR ll={ll} wn={nnw} wp={nnw*mp}
 .ends add1b
 
 .subckt nand in1 Q vdd vss in2
