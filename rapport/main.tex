@@ -248,13 +248,15 @@ ALU & \todo{Truss} \\
 \bottomrule
 }
 
+- Les mesures de temps de propagations ont été mesurer à 50\% des signaux au lieu du 90\% à 10\% pris pour les temps de transitions.
+
 \quicktab{Délais de propagation des composantes}{propagation}{llll}{
 \toprule
 Composante & Signal & Bas vers Haut ($\SI{}{\pico\s}$) & Haut vers Bas ($\SI{}{\pico\s}$) \\
 \midrule
-AND & $a_1 \rightarrow o_1$ & 136 & 140 \\
-ADD & $a_1 \rightarrow o_1$ & 225 & 170 \\
-ADD & $c_{in} \rightarrow o_1$ & 614 & 583 \\
+AND & $a_1 \rightarrow o_1$ & 89 & 101 \\
+ADD & $a_1 \rightarrow o_1$ & 2189 & 1794 \\
+ADD & $c_{in} \rightarrow o_1$ & 2038 & 1957 \\
 \bottomrule
 }
 
