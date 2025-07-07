@@ -74,8 +74,8 @@
 \tableofcontents
 \listoffigures
 \listoftables
-\newpage
 
+\newpage
 \section{Plan de vérification}
 
 \begin{center}
@@ -230,22 +230,32 @@
 	\end{longtable}
 \end{center}
 
-\section{Shématiques}
+\section{Shématiques diverses}
 \label{appdx:schematics}
 
-\quickfig{Additionneur 1 Bit}{add1b}{.6}{assets/add1b.png}
+\subsection{UAL}
+\quickfig{Unité d'arithmétique logique (UAL)}{alu}{1}{assets/alu.png}
+
+\newpage
+\subsection{Additionneur}
+Pour simplifier la schématique et éviter la redondance, une composante
+\verb|ADDER_1B| a été créée pour ensuite être utilisée dans l'additionneur
+3 Bits.
+
+\quickfig{Additionneur 1 Bit}{add1b}{1}{assets/add1b.png}
 \quickfig{Additionneur 3 Bits}{add3b}{.4}{assets/add3b.png}
-\quickfig{ET 3 Bits}{and3b}{.4}{assets/and3b.png}
-\quickfig{Multiplexeur de 2 entrées de 1 Bits}{mux2x1b}{.5}{assets/mux2x1b.png}
-\quickfig{Multiplexeur de 2 entrées de 3 Bits}{mux2x3b}{.5}{assets/mux2x3b.png}
-\quickfig{Tampon de sortie}{pad_buffer}{.5}{assets/pad_buffer.png}
-\quickfig{Unité d'arithmétique logique (UAL)}{alu}{.6}{assets/alu.png}
+
+\newpage
+\subsection{Opérateur ET}
+\quickfig{ET 3 Bits}{and3b}{1}{assets/and3b.png}
 
 
+\newpage
 \section{Conception du Multiplexeur 2 vers 1}
 
-Afin de simplifier la résolution de sa table de vérité \ref{tab:mux2x1b}, les fils suivant chaque porte logique
-on été ajoutés commes étapes intermédiaires.
+Afin de simplifier la résolution de sa table de vérité \ref{tab:mux2x1b}, les
+fils suivant chaque porte logique on été ajoutés commes étapes intermédiaires.
+Ces fils peuvent être vu dans la figure \ref{fig:mux2x1b}.
 
 \quicktab{Multiplexeur 2 vers 1 Bit}{mux2x1b}{ccccccc}{
   \toprule
@@ -286,8 +296,12 @@ on été ajoutés commes étapes intermédiaires.
   \overline{Y} &= (\overline{a}+s) \cdot (\overline{b}+\overline{s}) \\
 \end{align}
 
+\todo{Dimensionnement relatif des transistors dans le PUN, le PDN et entre le PUN et PDN}
+\todo{Dimensionnement absolue des transistors pour atteindre les spécifications}
 
+\newpage
 \section{Le tampon de sortie}
+\quickfig{Tampon de sortie}{pad_buffer}{.5}{assets/pad_buffer.png}
 \todo{Le dimensionnement de chaque étage du tampon de sortie et votre justification (vous
 pouvez ajouter par-dessus le schématique ou dans un tableau à part)}
 
