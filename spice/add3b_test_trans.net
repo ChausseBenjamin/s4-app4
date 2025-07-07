@@ -1,12 +1,10 @@
-* C:\users\lyam\Documents\University\S4\APP4\GitHub\s4-app4\spice\add3b_test.asc
+* C:\users\lyam\Documents\University\S4\APP4\GitHub\s4-app4\spice\add3b_test_trans.asc
 XU1 o1 o2 o3 out Bin2Dec Vhigh={vv}
-XU2 b N004 N005 N006 Dec2Bin Vhigh={vv}
-XU3 a N001 N002 N003 Dec2Bin Vhigh={vv}
-V1 vdd 0 {vv}
-Va a 0 3
-Vb b 0 3
+V1 vdd 0 1.8
 Vsel sel 0 1.8
-XX1 vdd N001 N002 N003 N004 N005 N006 0 o1 o2 o3 cout 0 add3b params: ll={ll} wn={nnw} wp={nnw*mp}
+XX1 vdd a 0 0 b b 0 0 o1 o2 o3 cout 0 add3b params: ll={ll} wn={nnw} wp={nnw*mp}
+V2 b 0 {vv}
+V3 a 0 PULSE(0 {vv} 10p 1p 1p 2n 4n 6)
 
 * block symbol definitions
 .subckt add3b vdd a1 a2 a3 b1 b2 b3 vss o1 o2 o3 cout cin
@@ -18,9 +16,9 @@ XX3 N002 a3 b3 o3 cout vdd vss add1b params: ll={ll} wn={nnw} wp={nnw*mp}
 .subckt add1b cin a b s cout vss vdd
 XX1 b N001 vss vdd a nand params: NAND wn={nnw} wp={nnw*mp} ll={ll}
 XX2 cin N002 vss vdd N003 nand params: NAND wn={nnw} wp={nnw*mp} ll={ll}
-XX3 b N003 vss vdd a xor params: XOR ll={ll} wn={nnw} wp={nnw*mp}
+XX3 b N003 vss vdd a xor params: XOR ll={ll} wn={nnw*2} wp={nnw*mp*2}
 XX4 N002 cout vss vdd N001 nand params: NAND wn={nnw} wp={nnw*mp} ll={ll}
-XX5 cin s vss vdd N003 xor params: XOR ll={ll} wn={nnw} wp={nnw*mp}
+XX5 cin s vss vdd N003 xor params: XOR ll={ll} wn={nnw*2} wp={nnw*mp*2}
 .ends add1b
 
 .subckt nand in1 Q vdd vss in2
@@ -60,8 +58,14 @@ M16 N008 in1 vss vss NMOS l={ll} w={wn*1} ad={450n*{wn}} as={450n*{wn}} pd={900n
 .param vv=1.8 nnw=180n mp=2.5 ll=180n
 .lib BU_180nm.lib
 .op
-.dc va 0 7 0.01
+.tran 4200p
+.meas tran t1 find time when v(o1)=vv*0.1 rise 1
+.meas tran t2 find time when v(o1)=vv*0.9 rise 1
+.meas tran t3 find time when v(o1)=vv*0.1 fall 1
+.meas tran t4 find time when v(o1)=vv*0.9 fall 1
+.meas tran transition_up param abs(t2-t1)
+.meas tran transition_down param abs(t4-t3)
+.meas TRAN ratio PARAM transition_up/transition_down
 .lib Bin2Dec.sub
-.lib Dec2Bin.sub
 .backanno
 .end
