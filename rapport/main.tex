@@ -288,8 +288,50 @@ on été ajoutés commes étapes intermédiaires.
 
 
 \section{Le tampon de sortie}
-\todo{Le dimensionnement de chaque étage du tampon de sortie et votre justification (vous
-pouvez ajouter par-dessus le schématique ou dans un tableau à part)}
+$$
+x^n=\frac{C_L}{C}
+$$
+$$
+x^n=\frac{1.5\times10^{-12}}{1\times10^{-15}}
+$$
+$$
+x^n=1500
+$$
+$$
+x^n=1500
+$$
+- on sait que $x=e$, donc:
+$$
+n=\ln(1500)
+$$
+$$
+n\approx7.31
+$$
+- On veut un nombre paire pour évité d'inverser le signal. C'est donc soit $8$ ou $6$.
+- Moins d'inverseur = moins de délai de propagation. Mais plus d'inverseur = plus de facilité. Cependant, on veut minimiser le délai de propagation.
+- Il reste donc à calculer la valeur du facteur x pour les deux valeurs de n et de calculer le plus petit délai de propagation.
+- Donc, pour n=6:
+$$
+x^6=1500
+$$
+$$
+x=1500^{\frac{1}{6}}
+$$
+$$
+x\approx3.38
+$$
+- Pour n=8
+$$
+x^8=1500
+$$
+$$
+x=1500^{\frac{1}{8}}
+$$
+$$
+x\approx2.49
+$$
+- Après un essaie dans LTspice et des mesures avec des curseurs et des directives, 6 inverseurs donne un délai de propagation moindre que 8 inverseurs.
+- On obtient 365ps au lieu de 406ps.
 
 \section{Prises de mesures}
 
