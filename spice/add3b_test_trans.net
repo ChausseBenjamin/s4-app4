@@ -2,7 +2,7 @@
 XU1 o1 o2 o3 out Bin2Dec Vhigh={vv}
 V1 vdd 0 1.8
 Vsel sel 0 1.8
-XX1 vdd 0 0 0 b b b 0 o1 o2 o3 cout a add3b params: ll={ll} wn={nnw} wp={nnw*mp}
+XX1 vdd b b b 0 0 0 0 o1 o2 o3 cout a add3b params: ll={ll} wn={nnw} wp={nnw*mp}
 V2 b 0 {vv}
 V3 a 0 PULSE(0 {vv} 2000p 1p 1p 2000p 4000p 5)
 
@@ -59,18 +59,19 @@ M16 N008 in1 vss vss NMOS l={ll} w={wn*1} ad={450n*{wn}} as={450n*{wn}} pd={900n
 .lib BU_180nm.lib
 .op
 .tran 7200p
-.meas tran t1 find time when v(o1)=vv*0.5 rise 1
-.meas tran t2 find time when v(o1)=vv*0.5 rise 1
-.meas tran t3 find time when v(o1)=vv*0.5 fall 1
-.meas tran t4 find time when v(o1)=vv*0.5 fall 1
+.meas tran t1 find time when v(o1)=vv*0.1 rise 1
+.meas tran t2 find time when v(o1)=vv*0.9 rise 1
+.meas tran t3 find time when v(o1)=vv*0.1 fall 1
+.meas tran t4 find time when v(o1)=vv*0.9 fall 1
 .meas tran t5 find time when v(a)=vv*0.5 rise 1
+.meas tran t6 find time when v(a)=vv*0.5 fall 1
+.meas tran t7 find time when v(cout)=vv*0.5 rise 1
+.meas tran t8 find time when v(cout)=vv*0.5 fall 1
 .meas tran transition_up param abs(t2-t1)
 .meas tran transition_down param abs(t4-t3)
 .meas tran ratio param transition_up/transition_down
-.meas tran moy param (transition_up+transition_down)/2
-.meas tran propagation param abs(t5-t2)
-.meas tran t6 find time when v(a)=vv*0.5 fall 1
-.meas tran propagationFall param abs(t6-t3)
+.meas tran propagation param abs(t5-t7)
+.meas tran propagationFall param abs(t6-t8)
 .lib Bin2Dec.sub
 .backanno
 .end
