@@ -257,6 +257,7 @@ Afin de simplifier la résolution de sa table de vérité \ref{tab:mux2x1b}, les
 fils suivant chaque porte logique on été ajoutés commes étapes intermédiaires.
 Ces fils peuvent être vu dans la figure \ref{fig:mux2x1b}.
 
+\begin{minipage}{0.48\textwidth}
 \quicktab{Multiplexeur 2 vers 1 Bit}{mux2x1b}{ccccccc}{
   \toprule
   \multirow{2}{*}{$s_{el}$} &
@@ -283,7 +284,9 @@ Ces fils peuvent être vu dans la figure \ref{fig:mux2x1b}.
   \\
   \bottomrule
 }
-
+\end{minipage}
+\hfill
+\begin{minipage}{0.48\textwidth}
 \begin{align}
   Y &= \overline{(T_2T_3)} = o_{ut}  \\
   &= \overline{(\overline{[aT_1]}\cdot\overline{[bs]} )} \\
@@ -295,6 +298,7 @@ Ces fils peuvent être vu dans la figure \ref{fig:mux2x1b}.
   \overline{Y} &= (\overline{a}+\overline{\overline{s}}) \cdot (\overline{b}+\overline{s}) \\
   \overline{Y} &= (\overline{a}+s) \cdot (\overline{b}+\overline{s}) \\
 \end{align}
+\end{minipage}
 
 \todo{Dimensionnement relatif des transistors dans le PUN, le PDN et entre le PUN et PDN}
 \todo{Dimensionnement absolue des transistors pour atteindre les spécifications}
