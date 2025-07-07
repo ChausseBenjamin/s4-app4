@@ -19,7 +19,7 @@
 
 \title{Rapport d'APP}
 
-\class{Logique Combinatoire}
+\class{Physique des portes logiques}
 \classnb{GIF470}
 
 \teacher{Keven Deslandes}
@@ -307,12 +307,9 @@ facteur multiplicatif de 2 pour que leurs temps de transitions soit similaire au
 
 \subsection{Dimensionnement absolue des transistors}
 Le dimmensionnement absolue des largeurs de $w_p$ sur $w_n$ à été trouvé avec l'inverseur. Il s'agissait de trouver des valeurs de marge de bruit (NMH et NML) pour plusieurs valeurs de mp différentes.
-Éventuellement, la valeur d'environ 2.5 donnait que le NMH et le NML était identique et le Vm était de VDD/2. Ce ratio relatif à été utilisé pour tout les transistors en plus du dimmensionnement relatif. 
+Éventuellement, la valeur d'environ 2.5 donnait que le NMH et le NML était identique et le Vm était de VDD/2. Ce ratio relatif à été utilisé pour tout les transistors en plus du dimmensionnement relatif.
 Les MOSFET PMOS sont donc de base 2.5 fois plus parge que les MOSFET NMOS.
 
-
-\todo{Dimensionnement relatif des transistors dans le PUN, le PDN et entre le PUN et PDN}
-\todo{Dimensionnement absolue des transistors pour atteindre les spécifications}
 
 \newpage
 \section{Le tampon de sortie}
@@ -358,8 +355,8 @@ On obtient $\SI{365}{\pico\s}$ au lieu de $\SI{406}{\pico\s}$ .
 \toprule
 Composante & Temps de montée 10\%-90\% ($\SI{}{\pico\s}$) \\
 \midrule
-AND & 83 \\
-ADD & 100 \\ % 100 ns = 100,000 ps
+AND (\&) & 83 \\
+ADD ($+$) & 100 \\ % 100 ns = 100,000 ps
 ALU & 95 \\
 \bottomrule
 }
@@ -370,13 +367,11 @@ Les mesures de temps de propagations ont été mesurer à 50\% des signaux au li
 \toprule
 Composante & Signal & Bas vers Haut ($\SI{}{\pico\s}$) & Haut vers Bas ($\SI{}{\pico\s}$) \\
 \midrule
-AND & $a_1 \rightarrow o_1$ & 89 & 101 \\
-ADD & $a_1 \rightarrow o_1$ & 243 & 237 \\
-ADD & $c_{in} \rightarrow o_1$ & 555 & 536 \\
+AND (\&) & $a_1 \rightarrow o_1$ & 89 & 101 \\
+ADD ($+$) & $a_1 \rightarrow o_1$ & 243 & 237 \\
+ADD ($+$) & $c_{in} \rightarrow o_1$ & 555 & 536 \\
 \bottomrule
 }
-
-
 
 \input{annexes.tex}
 
