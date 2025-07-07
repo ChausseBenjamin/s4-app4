@@ -296,6 +296,17 @@ Ces fils peuvent être vu dans la figure \ref{fig:mux2x1b}.
   \overline{Y} &= (\overline{a}+s) \cdot (\overline{b}+\overline{s}) \\
 \end{align}
 
+\subsection{Dimmensionnement relatif PUN, PDN}
+Le dimmensionnement relatif pour PUN et PDN dépend de si les transistors sont en série ou en parallèle à l'intérieur même des portes logiques. Uniquement l'inverseur et des portes
+non et sont utilisé dans le multiplexeur. Hors, dans l'inverseurs le PUN et le PDN on les mêmes dimmensionnement relatif, tandis que dans les portes non et, le PDN des NMOS ont un
+facteur multiplicatif de 2 pour que leurs temps de transitions soit similaire au PUN à cause que sont PDN consiste en 2 NMOS en série.
+
+\subsection{Dimensionnement absolue des transistors}
+Le dimmensionnement absolue des largeurs de $w_p$ sur $w_n$ à été trouvé avec l'inverseur. Il s'agissait de trouver des valeurs de marge de bruit (NMH et NML) pour plusieurs valeurs de mp différentes.
+Éventuellement, la valeur d'environ 2.5 donnait que le NMH et le NML était identique et le Vm était de VDD/2. Ce ratio relatif à été utilisé pour tout les transistors en plus du dimmensionnement relatif. 
+Les MOSFET PMOS sont donc de base 2.5 fois plus parge que les MOSFET NMOS.
+
+
 \todo{Dimensionnement relatif des transistors dans le PUN, le PDN et entre le PUN et PDN}
 \todo{Dimensionnement absolue des transistors pour atteindre les spécifications}
 
