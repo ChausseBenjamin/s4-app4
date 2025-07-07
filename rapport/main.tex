@@ -302,8 +302,40 @@ Ces fils peuvent être vu dans la figure \ref{fig:mux2x1b}.
 \newpage
 \section{Le tampon de sortie}
 \quickfig{Tampon de sortie}{pad_buffer}{.5}{assets/pad_buffer.png}
-\todo{Le dimensionnement de chaque étage du tampon de sortie et votre justification (vous
-pouvez ajouter par-dessus le schématique ou dans un tableau à part)}
+
+
+\begin{align}
+  x^n &= \frac{C_L}{C} \\
+  x^n &= \frac{1.5\times10^{-12}}{1\times10^{-15}} \\
+  x^n &= 1500
+\end{align}
+
+On sait que $x=e$, donc:
+
+\begin{equation}
+n=\ln(1500) \approx7.31 \\
+\end{equation}
+
+On veut un nombre paire pour évité d'inverser le signal. C'est donc soit $8$ ou $6$.
+Moins d'inverseur implique un plus petit délai de propagation. Mais plus d'inverseur = plus de facilité. Cependant, on veut minimiser le délai de propagation.
+Il reste donc à calculer la valeur du facteur x pour les deux valeurs de n et de calculer le plus petit délai de propagation.
+Donc, pour $n=6$:
+
+\begin{align}
+  x^6 &=1500 \\
+  x &=1500^{\frac{1}{6}} \approx3.38 \\
+\end{align}
+
+Pour $n=8$:
+
+\begin{align}
+  x^8 &= 1500 \\
+  x   &= 1500^{\frac{1}{8}} \approx 2.49 \\
+\end{align}
+
+Après un essai dans LTspice et des mesures avec des curseurs et des directives,
+6 inverseurs donne un délai de propagation moindre que 8 inverseurs.
+On obtient $\SI{365}{\pico\s}$ au lieu de $\SI{406}{\pico\s}$ .
 
 \section{Prises de mesures}
 
