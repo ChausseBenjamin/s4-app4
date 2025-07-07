@@ -17,8 +17,8 @@ PIN 64 16 RIGHT 8
 PINATTR PinName o
 PINATTR SpiceOrder 4
 PIN 16 -32 NONE 8
-PINATTR PinName vss
+PINATTR PinName vdd
 PINATTR SpiceOrder 5
 PIN 16 32 NONE 8
-PINATTR PinName vdd
+PINATTR PinName vss
 PINATTR SpiceOrder 6
