@@ -228,9 +228,53 @@
 	\end{longtable}
 \end{center}
 
+\section{Shématiques}
+\label{appdx:schematics}
+
 \section{Conception du Multiplexeur 2 vers 1}
 
-Afin de simplifier la création d'un multiplexeur
+Afin de simplifier la résolution de sa table de vérité \ref{tab:mux2x1b}, les fils suivant chaque porte logique
+on été ajoutés commes étapes intermédiaires.
+
+\quicktab{Multiplexeur 2 vers 1 Bit}{mux2x1b}{ccccccc}{
+  \toprule
+  \multirow{2}{*}{$s_{el}$} &
+  \multirow{2}{*}{$a$} &
+  \multirow{2}{*}{$b$} &
+  $T_1$ &
+  $T_2$ &
+  $T_3$ &
+  $o_{ut}$ \\
+  & & &
+  $\overline{s}$ &
+  $\overline{(aT_1)}$ &
+  $\overline{(bs)}$ &
+  $\overline{(T_2T_3)}$ \\
+  \midrule
+  0&0&0&1&1&1&0 \\
+  0&0&1&1&1&1&0 \\
+  0&1&0&1&0&1&1 \\
+  0&1&1&1&0&1&1 \\
+  1&0&0&0&1&1&0 \\
+  1&0&1&0&1&0&1 \\
+  1&1&0&0&1&1&0 \\
+  1&1&1&0&1&0&1
+  \\
+  \bottomrule
+}
+
+\begin{align}
+  Y &= \overline{(T_2T_3)} = o_{ut}  \\
+  &= \overline{(\overline{[aT_1]}\cdot\overline{[bs]} )} \\
+  &= \overline{(\overline{[a\overline{s}]}\cdot\overline{[bs]} )} \\
+  &= \overline{\overline{[a\overline{s}]}} + \overline{\overline{[bs]}} \\
+  Y &= a\overline{s} + bs \\
+  \overline{Y} &= \overline{(a\overline{s} + bs)} \\
+  \overline{Y} &= \overline{(a\overline{s})} \cdot \overline{(bs)} \\
+  \overline{Y} &= (\overline{a}+\overline{\overline{s}}) \cdot (\overline{b}+\overline{s}) \\
+  \overline{Y} &= (\overline{a}+s) \cdot (\overline{b}+\overline{s}) \\
+\end{align}
+
 
 \section{Le tampon de sortie}
 \todo{Le dimensionnement de chaque étage du tampon de sortie et votre justification (vous
