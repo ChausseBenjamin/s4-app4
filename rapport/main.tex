@@ -237,16 +237,27 @@ Afin de simplifier la création d'un multiplexeur
 pouvez ajouter par-dessus le schématique ou dans un tableau à part)}
 
 \section{Prises de mesures}
-% HERE YOU TO SHAWN- TADA!!!!
-\quicktab{Temps de montée et de descente des composantes}{ttLH-ttHL}{lll}{
+
+\quicktab{Temps de transition des composantes en montée}{ttLH-Sortie}{ll}{
 \toprule
-Composante & Temps de montée (10\%-90\%) & Temps de descente (90\%-10\%) \\
+Composante & Temps de montée 10\%-90\% ($\SI{}{\pico\s}$) \\
 \midrule
-AND & & \\
-ADD & & \\
-ALU & & \\
+AND & 83 \\
+ADD & 100 \\ % 100 ns = 100,000 ps
+ALU & \todo{Truss} \\
 \bottomrule
 }
+
+\quicktab{Délais de propagation des composantes}{propagation}{llll}{
+\toprule
+Composante & Signal & Bas vers Haut ($\SI{}{\pico\s}$) & Haut vers Bas ($\SI{}{\pico\s}$) \\
+\midrule
+AND & $a_1 \rightarrow o_1$ & 136 & 140 \\
+ADD & $a_1 \rightarrow o_1$ & 225 & 170 \\
+ADD & $c_{in} \rightarrow o_1$ & 614 & 583 \\
+\bottomrule
+}
+
 
 
 \input{annexes.tex}
