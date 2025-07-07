@@ -1,37 +1,9 @@
 \newpage
 \appendix
-\section{Shématiques}
-\label{appdx:schematics}
 
 
-\quickfig{Additionneur 1 Bit}{add1b}{.9}{assets/add1b.png}
-% \todo{Insérer le schéma de l’additionneur à 3 bits.}
-\quickfig{Additionneur 3 Bits}{add3b}{.8}{assets/add3b.png}
 
-% \todo{Insérer le schéma de la porte AND à 3 bits.}
-\quickfig{ET 3 Bits}{and3b}{.8}{assets/and3b.png}
-
-\quickfig{Multiplexeur de 2 entrées de 1 Bits}{mux2x1b}{1}{assets/mux2x1b.png}
-\quickfig{Multiplexeur de 2 entrées de 3 Bits}{mux2x3b}{.8}{assets/mux2x3b.png}
-
-\todo{Insérer le schéma du tampon de sortie.}
-
-
-% \todo{Insérer le schéma de l’UAL.}
-\quickfig{Unité d'arithmétique logique (UAL)}{alu}{1}{assets/alu.png}
-
-
-\begin{align}
-  Y &= \overline{(T_2T_3)} = o_{ut}  \\
-  &= \overline{(\overline{[aT_1]}\cdot\overline{[bs]} )} \\
-  &= \overline{(\overline{[a\overline{s}]}\cdot\overline{[bs]} )} \\
-  &= \overline{\overline{[a\overline{s}]}} + \overline{\overline{[bs]}} \\
-  Y &= a\overline{s} + bs \\
-  \overline{Y} &= \overline{(a\overline{s} + bs)} \\
-  \overline{Y} &= \overline{(a\overline{s})} \cdot \overline{(bs)} \\
-  \overline{Y} &= (\overline{a}+\overline{\overline{s}}) \cdot (\overline{b}+\overline{s}) \\
-  \overline{Y} &= (\overline{a}+s) \cdot (\overline{b}+\overline{s}) \\
-\end{align}
+\section{Annexes}
 
 \quicktab{Additionneur 1 Bit}{add1b}{cccccccc}{
   \toprule
@@ -60,5 +32,3 @@
   1&1&1&0&0&1&1&1 \\
   \bottomrule
 }
-
-\todo{Ajouter la table de vérité, la fonction $Y$ (PUN) et la fonction $\overline{Y}$ (PDN).}
